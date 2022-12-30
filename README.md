@@ -6,8 +6,6 @@
 
 **This is a simple shiny application created to predict the next word given the previous one, two, or three words of a given input.**  
 
-A library for creating the Artemis Dash application, which standardizes, visualizes, and analyzes temporal geospatial data. Users can filter their search query and view data on different types of maps. Other types of geospatial data can be overlayed (such as Team Reports from exercises) to provide additional context.
-
 ## Setup
 
 1. git clone repo
