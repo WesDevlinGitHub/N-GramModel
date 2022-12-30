@@ -24,18 +24,11 @@ combined_text <- merge_txt_files(inputfolder, pattern)
 corpusfeed <- VCorpus(VectorSource(combined_text))
 # Clean Corpus
 corpusfeed_cleaned <- clean_data(corpusfeed)
-#Generate a wordcloudplot of based on word frequency
 
+#Generate a dataframe from corpus of cleaned data to be stored as a row in the database.  
 dfNgrams <-
   data.frame(text = sapply(corpusfeed_cleaned, as.character),
              stringsAsFactors = FALSE)
 
-# Create a df of words and their frequency of the given min and max ngram
-n_grams <- tokenize_ngrams(readfile, 1, 1)
-
-uniGramTokenized <- dbGetQuery(conn, "SELECT * 
-  FROM word_freq")
-BiGramTokenized <- dbGetQuery(conn, "SELECT * 
-  FROM word2_freq")
 
 

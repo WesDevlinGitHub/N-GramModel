@@ -1,5 +1,11 @@
 source('./functions/data_clean.R')
 word_clean <- function(sentence){
+  #' Clean a sentence or word input
+  #'
+  #' @param sentence(char): given input from a user 
+  #'
+  #' @return cleaned word(s)
+  #' @examples word_clean("playing baseball")
   if(identical(sentence, "")){
     value = "Please input word(s)"
   }  else {
@@ -14,8 +20,13 @@ word_clean <- function(sentence){
   return(value)
 }
 
-
 ngram <- function(word){
+  #' N-Gram Model
+  #'
+  #' @param word(char): word_clean returned value 
+  #'
+  #' @return Returns the word with the highest frequency in the database of 
+  #' the n-gram.
   conn <- dbConnect(SQLite(), "./data/ngram.sqlite")
   sentence_length <- strsplit(word, ' ')[[1]]
   if (length(sentence_length) > 3){
@@ -57,18 +68,14 @@ ngram <- function(word){
   if (nodata == "True"){
     next_word <- unlist(strsplit(as.character(data$Word[data$Frequency==m])," "))[2]
   } else if (length(sentence_length) == 1){
-    print('in the if statement line 42')
     next_word <- unlist(strsplit(as.character(data$Word[data$Frequency==m])," "))[2]
   } else if (length(sentence_length) > 1 & length(sentence_length) < 3){
-    print('in the elif statement line 45')
     next_word <- next_word[1]
     next_word <- unlist(strsplit(as.character(next_word)," "))[3]
   } else if (length(sentence_length) > 2 & length(sentence_length) < 4){
-    print('in the elif statement line 49')
     next_word <- next_word[1]
     next_word <- unlist(strsplit(as.character(next_word)," "))[4]
   } else if (length(sentence_length) >=3){
-    print('in the elif statement line 49')
     next_word <- next_word[1]
     next_word <- unlist(strsplit(as.character(next_word)," "))[4]
   }else {return("unknown")}
@@ -78,7 +85,6 @@ ngram <- function(word){
 
 
 
-word_clean("playing baseball")
 
 
 

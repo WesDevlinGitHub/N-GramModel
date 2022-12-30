@@ -12,7 +12,8 @@ insert_data <- function(connection, df){
   #' @param df dataframe to insert into database
   #'
   #' @return None
-  #' Write a row of text data from a data frame to the database.
+  #' Write a row of text data from a data frame to the database. Use this function
+  #' to store initial lines of a txt document from the return of dfNgrams from ngram.R
   for(k in 1:length(df)){
     dbWriteTable(connection, "row_text", df[[k]], append = TRUE)
   }
@@ -25,9 +26,6 @@ df <- dbGetQuery(conn, "SELECT *
   FROM row_text
 LIMIT 100000 
 OFFSET ABS(RANDOM()) % MAX((SELECT COUNT(*) FROM row_text), 100000)")
-df_oneword <- tokenize_ngrams(df, 1, 1)
-dbWriteTable(conn, "word_freq", df_oneword, append = TRUE)
-rm(df_oneword)
 df_twoword <- tokenize_ngrams(df, 2, 2)
 dbWriteTable(conn, "word2_freq", df_twoword, append = TRUE)
 rm(df_twoword)
@@ -38,7 +36,6 @@ df_fourword <- tokenize_ngrams(df, 4, 4)
 dbWriteTable(conn, "word4_freq", df_fourword, append = TRUE)
 rm(df_fourword)
 
-deleteLowFreq <- dbExecute(conn, "DELETE FROM word_freq")
 # Close the database connection
 dbDisconnect(conn)
 
