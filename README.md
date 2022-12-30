@@ -19,6 +19,7 @@ A library for creating the Artemis Dash application, which standardizes, visuali
 ### File Structure 
 
 -./functions
+
 **predict.R**: Primary functions used to take a given input, clean the data, and select the proper table from the database for retrival of the next word with the highest frequency given the previous 1,2,3 words.
 
 **data_clean.R**: Functions to read in a given set of `*.txt` documents and clean each row.  
