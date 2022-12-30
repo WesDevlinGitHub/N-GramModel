@@ -1,5 +1,5 @@
 source('./functions/data_clean.R')
-wordproc <- function(sentence){
+word_clean <- function(sentence){
   if(identical(sentence, "")){
     value = "Please input word(s)"
   }  else {
@@ -78,7 +78,7 @@ ngram <- function(word){
 
 
 
-wordproc("playing baseball")
+word_clean("playing baseball")
 
 
 
