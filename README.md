@@ -14,6 +14,8 @@
 
 3. run the application
 
+4. To create your own database remove ngram.sqlite and rerun data_clean and database_generate functions to insert new data into database
+
 ### File Structure 
 
 **predict.R**: Primary functions used to take a given input, clean the data, and select the proper table from the database for retrival of the next word with the highest frequency given the previous 1,2,3 words.
