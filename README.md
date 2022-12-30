@@ -1,6 +1,6 @@
 # JHU Capstone
 
 <p text-align="center">
-    <img src="data/image.png" width="400"/>
+    <img src="https://github.com/WesDevlinGitHub/jhu_final/blob/main/data/image.jpg" width="400"/>
 </p>
 
