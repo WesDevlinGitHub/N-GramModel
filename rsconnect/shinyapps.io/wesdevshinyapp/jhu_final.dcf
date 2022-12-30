@@ -1,0 +1,11 @@
+name: jhu_final
+title:
+username:
+account: wesdevshinyapp
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7956877
+bundleId: 6683016
+url: https://wesdevshinyapp.shinyapps.io/jhu_final/
+when: 1672373620.96662
+lastSyncTime: 1672373620.96663
